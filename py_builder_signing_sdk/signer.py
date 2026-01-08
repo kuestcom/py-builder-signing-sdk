@@ -41,8 +41,8 @@ class BuilderSigner:
         )
 
         return BuilderHeaderPayload(
-            POLY_BUILDER_API_KEY=self.creds.key,
-            POLY_BUILDER_PASSPHRASE=self.creds.passphrase,
-            POLY_BUILDER_SIGNATURE=builder_sig,
-            POLY_BUILDER_TIMESTAMP=str(ts),
+            KUEST_BUILDER_API_KEY=self.creds.key,
+            KUEST_BUILDER_PASSPHRASE=self.creds.passphrase,
+            KUEST_BUILDER_SIGNATURE=builder_sig,
+            KUEST_BUILDER_TIMESTAMP=str(ts),
         )

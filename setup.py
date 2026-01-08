@@ -6,20 +6,20 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name="py_builder_signing_sdk",
     version="0.0.1",
-    author="Polymarket Engineering",
-    author_email="engineering@polymarket.com",
-    maintainer="Polymarket Engineering",
-    maintainer_email="engineering@polymarket.com",
+    author="Kuest Engineering",
+    author_email="support@kuest.com",
+    maintainer="Kuest Engineering",
+    maintainer_email="support@kuest.com",
     description="Python builder signing sdk",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Polymarket/py-builder-signing-sdk",
+    url="https://github.com/kuestcom/py-builder-signing-sdk",
     install_requires=[
         "python-dotenv",
         "requests",
     ],
     project_urls={
-        "Bug Tracker": "https://github.com/Polymarket/py-builder-signing-sdk/issues",
+        "Bug Tracker": "https://github.com/kuestcom/py-builder-signing-sdk/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -38,16 +38,16 @@ class RemoteSignerPayload:
 class BuilderHeaderPayload:
     """Builder header payload"""
 
-    POLY_BUILDER_API_KEY: str
-    POLY_BUILDER_TIMESTAMP: str
-    POLY_BUILDER_PASSPHRASE: str
-    POLY_BUILDER_SIGNATURE: str
+    KUEST_BUILDER_API_KEY: str
+    KUEST_BUILDER_TIMESTAMP: str
+    KUEST_BUILDER_PASSPHRASE: str
+    KUEST_BUILDER_SIGNATURE: str
 
     def to_dict(self) -> Dict[str, str]:
         """Convert to dictionary for use as headers"""
         return {
-            "POLY_BUILDER_API_KEY": self.POLY_BUILDER_API_KEY,
-            "POLY_BUILDER_TIMESTAMP": self.POLY_BUILDER_TIMESTAMP,
-            "POLY_BUILDER_PASSPHRASE": self.POLY_BUILDER_PASSPHRASE,
-            "POLY_BUILDER_SIGNATURE": self.POLY_BUILDER_SIGNATURE,
+            "KUEST_BUILDER_API_KEY": self.KUEST_BUILDER_API_KEY,
+            "KUEST_BUILDER_TIMESTAMP": self.KUEST_BUILDER_TIMESTAMP,
+            "KUEST_BUILDER_PASSPHRASE": self.KUEST_BUILDER_PASSPHRASE,
+            "KUEST_BUILDER_SIGNATURE": self.KUEST_BUILDER_SIGNATURE,
         }

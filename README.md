@@ -1,6 +1,6 @@
 # py-builder-signing-sdk
 
-Python SDK for Polymarket builder authentication and signing.
+Python SDK for Kuest builder authentication and signing.
 
 ## Installation
 

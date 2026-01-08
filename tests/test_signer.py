@@ -26,14 +26,14 @@ class TestBuilderSigner(TestCase):
 
         self.assertIsNotNone(payload)
         self.assertEqual(
-            payload.POLY_BUILDER_API_KEY, "019894b9-cb40-79c4-b2bd-6aecb6f8c6c5"
+            payload.KUEST_BUILDER_API_KEY, "019894b9-cb40-79c4-b2bd-6aecb6f8c6c5"
         )
         self.assertEqual(
-            payload.POLY_BUILDER_PASSPHRASE,
+            payload.KUEST_BUILDER_PASSPHRASE,
             "1816e5ed89518467ffa78c65a2d6a62d240f6fd6d159cba7b2c4dc510800f75a",
         )
-        self.assertEqual(payload.POLY_BUILDER_TIMESTAMP, "1758744060")
+        self.assertEqual(payload.KUEST_BUILDER_TIMESTAMP, "1758744060")
         self.assertEqual(
-            payload.POLY_BUILDER_SIGNATURE,
+            payload.KUEST_BUILDER_SIGNATURE,
             "8xh8d0qZHhBcLLYbsKNeiOW3Z0W2N5yNEq1kCVMe5QE=",
         )

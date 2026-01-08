@@ -90,25 +90,25 @@ class TestBuilder(TestCase):
 
         self.assertIsNotNone(headers)
         self.assertEqual(
-            headers.POLY_BUILDER_API_KEY, "019894b9-cb40-79c4-b2bd-6aecb6f8c6c5"
+            headers.KUEST_BUILDER_API_KEY, "019894b9-cb40-79c4-b2bd-6aecb6f8c6c5"
         )
         self.assertEqual(
-            headers.POLY_BUILDER_PASSPHRASE,
+            headers.KUEST_BUILDER_PASSPHRASE,
             "1816e5ed89518467ffa78c65a2d6a62d240f6fd6d159cba7b2c4dc510800f75a",
         )
-        self.assertEqual(headers.POLY_BUILDER_TIMESTAMP, "1758744060")
+        self.assertEqual(headers.KUEST_BUILDER_TIMESTAMP, "1758744060")
         self.assertEqual(
-            headers.POLY_BUILDER_SIGNATURE,
+            headers.KUEST_BUILDER_SIGNATURE,
             "8xh8d0qZHhBcLLYbsKNeiOW3Z0W2N5yNEq1kCVMe5QE=",
         )
 
     @responses.activate
     def test_generate_builder_headers_remote(self):
         mock_resp = BuilderHeaderPayload(
-            POLY_BUILDER_API_KEY="019894b9-cb40-79c4-b2bd-6aecb6f8c6c5",
-            POLY_BUILDER_TIMESTAMP="1758744060",
-            POLY_BUILDER_PASSPHRASE="1816e5ed89518467ffa78c65a2d6a62d240f6fd6d159cba7b2c4dc510800f75a",
-            POLY_BUILDER_SIGNATURE="8xh8d0qZHhBcLLYbsKNeiOW3Z0W2N5yNEq1kCVMe5QE=",
+            KUEST_BUILDER_API_KEY="019894b9-cb40-79c4-b2bd-6aecb6f8c6c5",
+            KUEST_BUILDER_TIMESTAMP="1758744060",
+            KUEST_BUILDER_PASSPHRASE="1816e5ed89518467ffa78c65a2d6a62d240f6fd6d159cba7b2c4dc510800f75a",
+            KUEST_BUILDER_SIGNATURE="8xh8d0qZHhBcLLYbsKNeiOW3Z0W2N5yNEq1kCVMe5QE=",
         ).to_dict()
         responses.add(
             responses.POST, "http://localhost:3000/sign", json=mock_resp, status=200
@@ -132,14 +132,14 @@ class TestBuilder(TestCase):
         )
         self.assertIsNotNone(headers)
         self.assertEqual(
-            headers.get("POLY_BUILDER_API_KEY"), "019894b9-cb40-79c4-b2bd-6aecb6f8c6c5"
+            headers.get("KUEST_BUILDER_API_KEY"), "019894b9-cb40-79c4-b2bd-6aecb6f8c6c5"
         )
         self.assertEqual(
-            headers.get("POLY_BUILDER_PASSPHRASE"),
+            headers.get("KUEST_BUILDER_PASSPHRASE"),
             "1816e5ed89518467ffa78c65a2d6a62d240f6fd6d159cba7b2c4dc510800f75a",
         )
-        self.assertEqual(headers.get("POLY_BUILDER_TIMESTAMP"), "1758744060")
+        self.assertEqual(headers.get("KUEST_BUILDER_TIMESTAMP"), "1758744060")
         self.assertEqual(
-            headers.get("POLY_BUILDER_SIGNATURE"),
+            headers.get("KUEST_BUILDER_SIGNATURE"),
             "8xh8d0qZHhBcLLYbsKNeiOW3Z0W2N5yNEq1kCVMe5QE=",
         )
