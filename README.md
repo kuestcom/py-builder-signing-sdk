@@ -1,11 +1,15 @@
-# py-builder-signing-sdk
+# Kuest Builder Signing SDK
+
+<a href='https://pypi.org/project/kuest-py-builder-signing-sdk'>
+    <img src='https://img.shields.io/pypi/v/kuest-py-builder-signing-sdk.svg' alt='PyPI'/>
+</a>
 
 Python SDK for Kuest builder authentication and signing.
 
 ## Installation
 
 ```bash
-pip install py-builder-signing-sdk
+pip install kuest-py-builder-signing-sdk
 ```
 
 ## Usage
