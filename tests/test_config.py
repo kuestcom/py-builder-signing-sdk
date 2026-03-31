@@ -1,4 +1,5 @@
 from unittest import TestCase
+import requests
 import responses
 
 from py_builder_signing_sdk.config import BuilderConfig
@@ -143,3 +144,26 @@ class TestBuilder(TestCase):
             headers.get("KUEST_BUILDER_SIGNATURE"),
             "8xh8d0qZHhBcLLYbsKNeiOW3Z0W2N5yNEq1kCVMe5QE=",
         )
+
+    @responses.activate
+    def test_generate_builder_headers_remote_request_error(self):
+        responses.add(
+            responses.POST,
+            "http://localhost:3000/sign",
+            body=requests.ConnectionError("boom"),
+        )
+
+        builder_config = BuilderConfig(
+            remote_builder_config=RemoteBuilderConfig(
+                url="http://localhost:3000/sign",
+            )
+        )
+
+        headers = builder_config.generate_builder_headers(
+            "POST",
+            "/order",
+            '{"data": "example"}',
+            1758744060,
+        )
+
+        self.assertIsNone(headers)

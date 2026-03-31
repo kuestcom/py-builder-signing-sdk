@@ -20,8 +20,8 @@ def request(endpoint: str, method: str, headers=None, data=None):
         except requests.JSONDecodeError:
             return resp.text
 
-    except requests.RequestException:
-        raise Exception(error_msg="Request exception!")
+    except requests.RequestException as err:
+        raise Exception("Request exception!") from err
 
 
 def post(endpoint, headers=None, data=None):
