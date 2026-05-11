@@ -78,7 +78,7 @@ class TestBuilder(TestCase):
         )
 
         requestPath = "/order"
-        requestBody = '{"deferExec":false,"order":{"salt":718139292476,"maker":"0x6e0c80c90ea6c15917308F820Eac91Ce2724B5b5","signer":"0x6e0c80c90ea6c15917308F820Eac91Ce2724B5b5","taker":"0x0000000000000000000000000000000000000000","tokenId":"15871154585880608648532107628464183779895785213830018178010423617714102767076","makerAmount":"5000000","takerAmount":"10000000","side":"BUY","expiration":"0","nonce":"0","feeRateBps":"1000","signatureType":0,"signature":"0x64a2b097cf14f9a24403748b4060bedf8f33f3dbe2a38e5f85bc2a5f2b841af633a2afcc9c4d57e60e4ff1d58df2756b2ca469f984ecfd46cb0c8baba8a0d6411b"},"owner":"5d1c266a-ed39-b9bd-c1f5-f24ae3e14a7b","orderType":"GTC"}'
+        requestBody = '{"deferExec":false,"order":{"salt":718139292476,"maker":"0x6e0c80c90ea6c15917308F820Eac91Ce2724B5b5","signer":"0x6e0c80c90ea6c15917308F820Eac91Ce2724B5b5","tokenId":"15871154585880608648532107628464183779895785213830018178010423617714102767076","makerAmount":"5000000","takerAmount":"10000000","side":"BUY","signatureType":3,"timestamp":"1758744060000","metadata":"0x0000000000000000000000000000000000000000000000000000000000000000","builder":"0x0000000000000000000000000000000000000000000000000000000000000000","signature":"0x64a2b097cf14f9a24403748b4060bedf8f33f3dbe2a38e5f85bc2a5f2b841af633a2afcc9c4d57e60e4ff1d58df2756b2ca469f984ecfd46cb0c8baba8a0d6411b"},"owner":"5d1c266a-ed39-b9bd-c1f5-f24ae3e14a7b","orderType":"GTC","expiration":"0"}'
         requestMethod = "POST"
         timestamp = 1758744060
 
@@ -100,7 +100,7 @@ class TestBuilder(TestCase):
         self.assertEqual(headers.KUEST_BUILDER_TIMESTAMP, "1758744060")
         self.assertEqual(
             headers.KUEST_BUILDER_SIGNATURE,
-            "8xh8d0qZHhBcLLYbsKNeiOW3Z0W2N5yNEq1kCVMe5QE=",
+            "A_Q3AZVfyzcumj4FAptV5QuQNIaTWqKdbutAiUtPHZk=",
         )
 
     @responses.activate
@@ -109,7 +109,7 @@ class TestBuilder(TestCase):
             KUEST_BUILDER_API_KEY="019894b9-cb40-79c4-b2bd-6aecb6f8c6c5",
             KUEST_BUILDER_TIMESTAMP="1758744060",
             KUEST_BUILDER_PASSPHRASE="1816e5ed89518467ffa78c65a2d6a62d240f6fd6d159cba7b2c4dc510800f75a",
-            KUEST_BUILDER_SIGNATURE="8xh8d0qZHhBcLLYbsKNeiOW3Z0W2N5yNEq1kCVMe5QE=",
+            KUEST_BUILDER_SIGNATURE="A_Q3AZVfyzcumj4FAptV5QuQNIaTWqKdbutAiUtPHZk=",
         ).to_dict()
         responses.add(
             responses.POST, "http://localhost:3000/sign", json=mock_resp, status=200
@@ -121,7 +121,7 @@ class TestBuilder(TestCase):
             )
         )
         requestPath = "/order"
-        requestBody = '{"deferExec":false,"order":{"salt":718139292476,"maker":"0x6e0c80c90ea6c15917308F820Eac91Ce2724B5b5","signer":"0x6e0c80c90ea6c15917308F820Eac91Ce2724B5b5","taker":"0x0000000000000000000000000000000000000000","tokenId":"15871154585880608648532107628464183779895785213830018178010423617714102767076","makerAmount":"5000000","takerAmount":"10000000","side":"BUY","expiration":"0","nonce":"0","feeRateBps":"1000","signatureType":0,"signature":"0x64a2b097cf14f9a24403748b4060bedf8f33f3dbe2a38e5f85bc2a5f2b841af633a2afcc9c4d57e60e4ff1d58df2756b2ca469f984ecfd46cb0c8baba8a0d6411b"},"owner":"5d1c266a-ed39-b9bd-c1f5-f24ae3e14a7b","orderType":"GTC"}'
+        requestBody = '{"deferExec":false,"order":{"salt":718139292476,"maker":"0x6e0c80c90ea6c15917308F820Eac91Ce2724B5b5","signer":"0x6e0c80c90ea6c15917308F820Eac91Ce2724B5b5","tokenId":"15871154585880608648532107628464183779895785213830018178010423617714102767076","makerAmount":"5000000","takerAmount":"10000000","side":"BUY","signatureType":3,"timestamp":"1758744060000","metadata":"0x0000000000000000000000000000000000000000000000000000000000000000","builder":"0x0000000000000000000000000000000000000000000000000000000000000000","signature":"0x64a2b097cf14f9a24403748b4060bedf8f33f3dbe2a38e5f85bc2a5f2b841af633a2afcc9c4d57e60e4ff1d58df2756b2ca469f984ecfd46cb0c8baba8a0d6411b"},"owner":"5d1c266a-ed39-b9bd-c1f5-f24ae3e14a7b","orderType":"GTC","expiration":"0"}'
         requestMethod = "POST"
         timestamp = 1758744060
 
@@ -142,7 +142,7 @@ class TestBuilder(TestCase):
         self.assertEqual(headers.get("KUEST_BUILDER_TIMESTAMP"), "1758744060")
         self.assertEqual(
             headers.get("KUEST_BUILDER_SIGNATURE"),
-            "8xh8d0qZHhBcLLYbsKNeiOW3Z0W2N5yNEq1kCVMe5QE=",
+            "A_Q3AZVfyzcumj4FAptV5QuQNIaTWqKdbutAiUtPHZk=",
         )
 
     @responses.activate
