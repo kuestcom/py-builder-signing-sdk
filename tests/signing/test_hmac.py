@@ -17,3 +17,21 @@ class TestHMAC(TestCase):
             signature,
             "ZwAdJKvoYRlEKDkNMwd5BuwNNtg93kNaR_oU2HrfVvc=",
         )
+
+    def test_query_parameters_are_excluded_from_signature(self):
+        path_signature = build_hmac_signature(
+            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+            "1000000",
+            "test-sign",
+            "/orders",
+            '{"hash": "0x123"}',
+        )
+        query_signature = build_hmac_signature(
+            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+            "1000000",
+            "test-sign",
+            "/orders?market=condition",
+            '{"hash": "0x123"}',
+        )
+
+        self.assertEqual(query_signature, path_signature)
